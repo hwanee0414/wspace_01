@@ -28,12 +28,13 @@
 	</bean>
 
 	<bean id="viewResolver" class="main.ViewResolver">
-		<property name="prefix" value="WEB-INF/grape_jsp/"/>
+		<property name="prefix" value="WEB-INF/jsp/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
 	<bean id="mapping" class="main.MethodAndTargetMap"/>
-		
+
+	<bean class="works.CtrlMain"/>		
 </beans>
 
 
