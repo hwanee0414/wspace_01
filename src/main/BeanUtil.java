@@ -28,7 +28,7 @@ public class BeanUtil
 				String fn = mtd.getName();
 				if( fn.startsWith("set") )
 				{
-					String pn = BeanUtil.toPropName( fn );
+					String pn = BeanUtil.toPropName2( fn );
 					if( pn != null ){
 						String val = request.getParameter( pn );
 						if( val != null && !val.equals("") ){
@@ -59,14 +59,13 @@ public class BeanUtil
 	public static boolean isPropertyNeedUTF( String pn ){
 		if( pn == null )
 			return false;
-		
-		return (  pn.equals("title") || 
+		return true;
+/*		return (  pn.equals("title") || 
 			pn.equals("content") || 
 			pn.equals("repleBody") || 
 			pn.equals("nickName") ); 		
-	}
+*/	}
 	
-	//	String l2 = BeanUtil.toPropName( l );
 	public static String toPropName( String l )
 	{
 		if( l == null || l.equals("") )
@@ -82,9 +81,34 @@ public class BeanUtil
 		}
 	}
 	
+	public static String toPropName2( String l )
+	{
+		if( l == null || l.equals("") )
+			return null;
+		
+		if( l.startsWith("set") ){
+			StringBuffer sb = new StringBuffer();
+			
+			char[] cs = l.substring(3).toCharArray();
+			sb.append( (char)(cs[0] + 32) );
+			for( int i = 1 ; i < cs.length ; i++ )
+			{
+				if( cs[i] >= 'A' && cs[i] <= 'Z' ){
+					sb.append('_');
+					sb.append( (char)(cs[i] + 32) );
+				} else {
+					sb.append(cs[i]);
+				}
+			}
+			return sb.toString();
+		}
+		else{
+			return null;
+		}
+	}	
 	
 	
-	//	byte < short = char < int < long < float < double
+	
 	public static String toSetterName( String l ){
 		StringBuffer sb = new StringBuffer();
 		sb.append("set");
