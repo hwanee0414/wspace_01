@@ -5,8 +5,8 @@ import main.RequestMapping;
 import main.ResponseBody;
 
 @Controller
-public class CtrlMain {
-
+public class CtrlMain 
+{
 	@ResponseBody
 	@RequestMapping("/ping.do")
 	public String ping() throws Exception{
@@ -16,5 +16,15 @@ public class CtrlMain {
 	@RequestMapping("/ping2.do")
 	public String ping2() throws Exception{
 		return "ping2";
+	}	
+	
+	@RequestMapping("/join.do")
+	public Object join() throws Exception{
+		return "join";
+	}	
+	
+	@RequestMapping("/login.do")
+	public Object login() throws Exception{
+		return "login";
 	}	
 }

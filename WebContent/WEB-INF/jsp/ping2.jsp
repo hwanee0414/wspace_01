@@ -9,3 +9,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+			
+			</div>
+			<div class="col-sm-4">
+			
+			</div>
+		</div>
+	</div>
+</body>
+</html>
